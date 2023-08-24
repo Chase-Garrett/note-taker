@@ -1,6 +1,7 @@
 // import statements
 const express = require("express");
 const path = require("path");
+const api = require("./routes/index.js");
 
 
 // set PORT to process.env.PORT or 3001
@@ -19,4 +20,9 @@ app.use(express.static("public"));
 // GET Route for homepage
 app.get("/", (req, res) =>
     res.sendFile(path.join(__dirname, "/public/index.html"))
+);
+
+// listener
+app.listen(PORT, () =>
+    console.log(`App listening at http://localhost:${PORT}`)
 );
