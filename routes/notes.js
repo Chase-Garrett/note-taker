@@ -1,7 +1,7 @@
 // import express router
 const router = require("express").Router();
 // import helper functions
-const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
+const { readFromFile, readAndAppend } = require("../lib/fsUtils");
 
 // GET Route for retrieving all the notes
 router.get("/", async (req, res) => {
