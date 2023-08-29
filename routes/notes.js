@@ -1,7 +1,7 @@
 // import express router
 const router = require("express").Router();
 // import helper functions
-const { readFromFile, readAndAppend } = require("../lib/fsUtils");
+const { readFromFile, readAndAppend, writeToFile } = require("../lib/fsUtils");
 // import uuid
 const { v4: uuidv4 } = require("uuid");
 
@@ -38,8 +38,16 @@ router.post("/", (req, res) => {
     } else {
         res.error("Error in adding note");
     }
-}
-);
+});
+
+// DELETE Route for a specific note
+router.delete("/:id", async (req, res) => {
+    console.info(`${req.method} request received to delete a note`);
+    const data = await readFromFile("./db/db.json").then((data) => JSON.parse(data));
+    const result = data.filter((note) => note.id !== req.params.id);
+    writeToFile("./db/db.json", result);
+    res.json(`Note deleted successfully`);
+});
 
 // export router
 module.exports = router;
