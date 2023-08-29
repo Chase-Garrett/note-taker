@@ -2,6 +2,8 @@
 const router = require("express").Router();
 // import helper functions
 const { readFromFile, readAndAppend } = require("../lib/fsUtils");
+// import uuid
+const { v4: uuidv4 } = require("uuid");
 
 // GET Route for retrieving all the notes
 router.get("/", async (req, res) => {
@@ -11,6 +13,16 @@ router.get("/", async (req, res) => {
 }
 );
 
+// GET Route for a specific note
+router.get("/:id", async (req, res) => {
+    console.info(`${req.method} request received for a specific note`);
+    const data = await readFromFile("./db/db.json").then((data) => JSON.parse(data));
+    const result = data.filter((note) => note.id === req.params.id);
+    return result.length > 0
+        ? res.json(result)
+        : res.json("No note with that ID");
+});
+
 // POST Route for a new note
 router.post("/", (req, res) => {
     console.info(`${req.method} request received to add a note`);
@@ -19,6 +31,7 @@ router.post("/", (req, res) => {
         const newNote = {
             title,
             text,
+            id: uuidv4(),
         };
         readAndAppend(newNote, "./db/db.json");
         res.json(`Note added successfully`);
