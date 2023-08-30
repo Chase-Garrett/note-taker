@@ -1,7 +1,7 @@
 # note-taker
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   ## Description
-
+  A full-stack note taking application.
   ## Table of Contents
    -[Installation](#installation)
 
