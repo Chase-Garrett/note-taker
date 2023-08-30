@@ -16,7 +16,7 @@
   -[Questions](#questions)
 
   ## Installation
-  N/A
+  The app is currently deployed at https://mighty-springs-69192-49479b06d050.herokuapp.com/
 
   ## Usage
   On the homepage you can click the "Get Started" button to take you to the section containing the notes.
