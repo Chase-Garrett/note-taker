@@ -16,7 +16,7 @@
   -[Questions](#questions)
 
   ## Installation
-  The app is currently deployed at https://mighty-springs-69192-49479b06d050.herokuapp.com/
+  This app is not currently deployed. As such in order to view the functionality clone the repository, run "npm i" to ensure all dependencies are installed then run  "npm start". The application will then be viewable at localhost:3001.
 
   ## Usage
   On the homepage you can click the "Get Started" button to take you to the section containing the notes.
